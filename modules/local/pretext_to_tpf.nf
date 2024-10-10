@@ -1,8 +1,8 @@
-process PRETEXT-TO-TPF {
+process PRETEXT_TO_TPF {
     tag "$meta.id"
     label 'process_single'
 
-    container 'ghcr.io/sanger-tol/agp-tpf-utils:latest'
+    container 'ghcr.io/sanger-tol/agp-tpf-utils:1.0.2'
 
     input:
     tuple val(meta), path(mappedtpf)
@@ -11,7 +11,7 @@ process PRETEXT-TO-TPF {
 
 
     output:
-    tuple val(meta), path("*agp")  , emit: corrected_agp
+    tuple val(meta), path("*agp")  , emit: correctedagp
     path "versions.yml"            , emit: versions
 
     when:
@@ -23,8 +23,6 @@ process PRETEXT-TO-TPF {
 
     """
     pretext-to-tpf -a ${mappedtpf} -p ${pretextagp} -c ${autosomeprefix} -o ${prefix}_corrected.agp ${args}
-
-
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         agp-tpf-utils: \$(agp-tpf-utils --version | sed 's/agp-tpf-utils //g')

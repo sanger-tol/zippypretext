@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 # usage: python3 rapid_split.py FASTA > TPF
 
 import sys
@@ -8,7 +8,7 @@ ns=re.compile("[Nn]+")
 for seq_record in SeqIO.parse(sys.argv[1], "fasta"):
     c=1
     for m in ns.finditer(str(seq_record.seq)):
-        print(f'?\t{seq_record.id}:{c}-{m.start()}\t{seq_record.id}\tPLUS')
-        print(f'GAP\tTYPE-2\t{m.end()-m.start()+1}')
+        print("?\t{}:{}-{}\t{}\tPLUS".format(seq_record.id, c, m.start(), seq_record.id))
+        print("GAP\tTYPE-2\t{}".format(m.end() - m.start() + 1))
         c=m.end()+1
-    print(f'?\t{seq_record.id}:{c}-{len(seq_record.seq)}\t{seq_record.id}\tPLUS')
+    print("?\t{}:{}-{}\t{}\tPLUS".format(seq_record.id, c, len(seq_record.seq), seq_record.id))
