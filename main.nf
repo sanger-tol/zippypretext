@@ -33,7 +33,8 @@ params.fasta = getGenomeAttribute('fasta')
 params.sample = getGenomeAttribute('sample')
 params.pretextagp = getGenomeAttribute('pretextagp')
 params.autosome = getGenomeAttribute('autosome')
-params.alignment = getGenomeAttribute('alignment')
+params.hicmap = getGenomeAttribute('hicmap')
+params.idxfile = getGenomeAttribute('idxfile')
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,9 +51,10 @@ workflow ZIPPYPRETEXT {
     fasta      = Channel.of(params.fasta)
     pretextagp = Channel.of(params.agp)
     autosome   = Channel.of(params.autosome)
-    alignment  = Channel.of(params.alignment)
+    hicmap     = Channel.of(params.hicmap)
+    idxfile    = Channel.of(params.idxfile)
 
-    ZIPPYPRETEXT_MAP(fasta, sample, pretextagp, autosome, alignment)
+    ZIPPYPRETEXT_MAP(fasta, sample, pretextagp, idxfile, autosome, hicmap)
 }
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
