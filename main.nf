@@ -24,10 +24,11 @@ include { getGenomeAttribute      } from './subworkflows/local/utils_nfcore_zipp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-// TODO nf-core: Remove this line if you don't need a FASTA file
-//   This is an example of how to use getGenomeAttribute() to fetch parameters
-//   from igenomes.config using `--genome`
 params.fasta = getGenomeAttribute('fasta')
+params.sample = getGenomeAttribute('sample')
+params.pretextagp = getGenomeAttribute('pretextagp')
+params.hicmap = getGenomeAttribute('hicmap')
+params.idxfile = getGenomeAttribute('idxfile')
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,22 +39,18 @@ params.fasta = getGenomeAttribute('fasta')
 //
 // WORKFLOW: Run main analysis pipeline depending on type of input
 //
+
 workflow SANGERTOL_ZIPPYPRETEXT {
 
-    take:
-    samplesheet // channel: samplesheet read in from --input
+    sample     = Channel.of(params.sample)
+    fasta      = Channel.of(params.fasta)
+    pretextagp = Channel.of(params.agp)
+    hicmap     = Channel.of(params.hicmap)
+    idxfile    = Channel.of(params.idxfile)
 
-    main:
-
-    //
-    // WORKFLOW: Run pipeline
-    //
-    ZIPPYPRETEXT (
-        samplesheet
-    )
-    emit:
-    multiqc_report = ZIPPYPRETEXT.out.multiqc_report // channel: /path/to/multiqc_report.html
+    ZIPPYPRETEXT(fasta, sample, pretextagp, idxfile, hicmap)
 }
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     RUN MAIN WORKFLOW
@@ -79,7 +76,12 @@ workflow {
     // WORKFLOW: Run main workflow
     //
     SANGERTOL_ZIPPYPRETEXT (
-        PIPELINE_INITIALISATION.out.samplesheet
+        PIPELINE_INITIALISATION.out.fasta, 
+        PIPELINE_INITIALISATION.out.sample, 
+        PIPELINE_INITIALISATION.out.pretextagp, 
+        PIPELINE_INITIALISATION.out.idxfile, 
+        PIPELINE_INITIALISATION.out.hicmap
+        
     )
     //
     // SUBWORKFLOW: Run completion tasks
@@ -90,8 +92,7 @@ workflow {
         params.plaintext_email,
         params.outdir,
         params.monochrome_logs,
-        params.hook_url,
-        SANGERTOL_ZIPPYPRETEXT.out.multiqc_report
+        params.hook_url
     )
 }
 
