@@ -16,19 +16,12 @@
 include { ZIPPYPRETEXT  } from './workflows/zippypretext'
 include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_zippypretext_pipeline'
 include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_zippypretext_pipeline'
-include { getGenomeAttribute      } from './subworkflows/local/utils_nfcore_zippypretext_pipeline'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     GENOME PARAMETER VALUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-
-params.fasta = getGenomeAttribute('fasta')
-params.sample = getGenomeAttribute('sample')
-params.pretextagp = getGenomeAttribute('pretextagp')
-params.hicmap = getGenomeAttribute('hicmap')
-params.idxfile = getGenomeAttribute('idxfile')
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -42,6 +42,7 @@ template:
   outdir: .
   is_nfcore: false
   skip_features:
+    - igenomes
     - codespaces
     - fastqc
     - adaptivecard
