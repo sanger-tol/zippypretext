@@ -4,7 +4,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { ZIPPYPRETEXT            } from '../subworkflows/local/zippypretext'
+include { ZIPPYPRETEXT_MAP           } from '../subworkflows/local/zippypretext_map'
 include { paramsSummaryMap       } from 'plugin/nf-validation'
 include { paramsSummaryMultiqc   } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pipeline'
@@ -36,7 +36,7 @@ workflow ZIPPYPRETEXT {
     //
     // SUBWORKFLOW: Run ZIPPYPRETEXT
     //
-    ZIPPYPRETEXT (
+    ZIPPYPRETEXT_MAP (
         fasta_tuple,pretextagp,hicmap_tuple,idxfile
     )
     ch_versions = ch_versions.mix(ZIPPYPRETEXT.out.versions.first())

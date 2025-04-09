@@ -34,12 +34,12 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_zipp
 //
 
 workflow SANGERTOL_ZIPPYPRETEXT {
-
-    sample     = Channel.of(params.sample)
-    fasta      = Channel.of(params.fasta)
-    pretextagp = Channel.of(params.agp)
-    hicmap     = Channel.of(params.hicmap)
-    idxfile    = Channel.of(params.idxfile)
+    take:
+    fasta
+    sample 
+    pretextagp     
+    idxfile
+    hicmap
 
     ZIPPYPRETEXT(fasta, sample, pretextagp, idxfile, hicmap)
 }
@@ -62,7 +62,7 @@ workflow {
         params.monochrome_logs,
         args,
         params.outdir,
-        params.input
+        params.fasta
     )
 
     //
