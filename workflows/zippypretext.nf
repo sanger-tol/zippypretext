@@ -39,7 +39,7 @@ workflow ZIPPYPRETEXT {
     ZIPPYPRETEXT_MAP (
         fasta_tuple,pretextagp,hicmap_tuple,idxfile
     )
-    ch_versions = ch_versions.mix(ZIPPYPRETEXT.out.versions.first())
+    ch_versions = ch_versions.mix(ZIPPYPRETEXT_MAP.out.versions.first())
 
     emit:
     versions       = ch_versions                 // channel: [ path(versions.yml) ]

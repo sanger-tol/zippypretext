@@ -41,6 +41,8 @@ workflow SANGERTOL_ZIPPYPRETEXT {
     idxfile
     hicmap
 
+    main:
+
     ZIPPYPRETEXT(fasta, sample, pretextagp, idxfile, hicmap)
 }
 
