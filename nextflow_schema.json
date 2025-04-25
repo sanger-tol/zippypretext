@@ -20,6 +20,36 @@
                     "help_text": "You need the input fasta file",
                     "fa_icon": "fas fa-file-fasta"
                 },
+                "sample": {
+                    "type": "string",
+                    "description": "output pretext prefix",
+                    "help_text": "Give me pretext prefix",
+                    "fa_icon": "fas fa-file-signature"
+                },
+                "agp": {
+                    "type": "string",
+                    "format": "file-path",
+                    "pattern": "^\\S+(\\.agp)?$",
+                    "description": "pretext agp file",
+                    "help_text": "You need the agp file",
+                    "fa_icon": "fas fa-file-fasta"
+                },
+                "hicmap": {
+                    "type": "string",
+                    "format": "file-path",
+                    "pattern": "^\\S+?$",
+                    "description": "bin/bam file",
+                    "help_text": "You need the hicmap file, can be bin file or bam file",
+                    "fa_icon": "fas fa-file-fasta"
+                },
+                "idxfile": {
+                    "type": "string",
+                    "format": "file-path",
+                    "pattern": "^\\S+(\\.fai)?$",
+                    "description": "fasta index file",
+                    "help_text": "You need the fasta index file from the last mapping",
+                    "fa_icon": "fas fa-file-fasta"
+                },
                 "outdir": {
                     "type": "string",
                     "format": "directory-path",
