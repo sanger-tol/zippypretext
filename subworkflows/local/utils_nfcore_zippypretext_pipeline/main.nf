@@ -72,7 +72,7 @@ workflow PIPELINE_INITIALISATION {
                 checkIfExists: true,
                 type: 'file'
                 )
-    
+
     sample     =  params.sample
 
     pretextagp = Channel.fromPath(
@@ -86,7 +86,7 @@ workflow PIPELINE_INITIALISATION {
                 checkIfExists: true,
                 type: 'file'
                 )
-    
+
     hicmap    = Channel.fromPath(
                 params.hicmap,
                 checkIfExists: true,
@@ -94,7 +94,7 @@ workflow PIPELINE_INITIALISATION {
                 )
 
 
-    
+
 
     emit:
     fasta
@@ -171,7 +171,7 @@ def validateInputSamplesheet(input) {
 
     return [ metas[0], fastqs ]
 }
-    
+
 //
 // Generate methods description
 //

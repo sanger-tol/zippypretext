@@ -5,7 +5,7 @@ process JUICERC {
     container 'quay.io/sanger-tol/juicerc:1.2-c1'
 
     input:
-    tuple val(meta), path(hicmap) 
+    tuple val(meta), path(hicmap)
     path(agpfile)
     path(idxfile)
 
@@ -22,11 +22,11 @@ process JUICERC {
     def prefix  = task.ext.prefix   ?: "${meta.id}"
 
     """
-    juicerc.sh ${hicmap} ${agpfile} ${idxfile} > ${prefix}_alignment_sorted.txt 
+    juicerc.sh ${hicmap} ${agpfile} ${idxfile} > ${prefix}_alignment_sorted.txt
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-		juicer: \$(juicer -h | grep 'Version'|sed 's/Version: //g')	
+		juicer: \$(juicer -h | grep 'Version'|sed 's/Version: //g')
     END_VERSIONS
     """
 
