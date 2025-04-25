@@ -37,13 +37,13 @@ workflow SANGERTOL_ZIPPYPRETEXT {
     take:
     fasta
     sample
-    pretextagp
+    agp
     idxfile
     hicmap
 
     main:
 
-    ZIPPYPRETEXT(fasta, sample, pretextagp, idxfile, hicmap)
+    ZIPPYPRETEXT(fasta, sample, agp, idxfile, hicmap)
 }
 
 /*
@@ -73,7 +73,7 @@ workflow {
     SANGERTOL_ZIPPYPRETEXT (
         PIPELINE_INITIALISATION.out.fasta,
         PIPELINE_INITIALISATION.out.sample,
-        PIPELINE_INITIALISATION.out.pretextagp,
+        PIPELINE_INITIALISATION.out.agp,
         PIPELINE_INITIALISATION.out.idxfile,
         PIPELINE_INITIALISATION.out.hicmap
 

@@ -75,7 +75,7 @@ workflow PIPELINE_INITIALISATION {
 
     sample     =  params.sample
 
-    pretextagp = Channel.fromPath(
+    agp = Channel.fromPath(
                 params.agp,
                 checkIfExists: true,
                 type: 'file'
@@ -99,7 +99,7 @@ workflow PIPELINE_INITIALISATION {
     emit:
     fasta
     sample
-    pretextagp
+    agp
     idxfile
     hicmap
     versions    = ch_versions

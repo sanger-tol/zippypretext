@@ -21,7 +21,7 @@ workflow ZIPPYPRETEXT {
     take:
     fasta // channel: fasta file to produce the mapped bam
     sample
-    pretextagp
+    agp
     idxfile
     hicmap
 
@@ -37,7 +37,7 @@ workflow ZIPPYPRETEXT {
     // SUBWORKFLOW: Run ZIPPYPRETEXT
     //
     ZIPPYPRETEXT_MAP (
-        fasta_tuple,pretextagp,hicmap_tuple,idxfile
+        fasta_tuple,agp,hicmap_tuple,idxfile
     )
     ch_versions = ch_versions.mix(ZIPPYPRETEXT_MAP.out.versions.first())
 
