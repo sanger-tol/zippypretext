@@ -35,7 +35,7 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_zipp
 
 workflow SANGERTOL_ZIPPYPRETEXT {
     take:
-    fasta
+    input
     sample
     agp
     idxfile
@@ -43,7 +43,7 @@ workflow SANGERTOL_ZIPPYPRETEXT {
 
     main:
 
-    ZIPPYPRETEXT(fasta, sample, agp, idxfile, hicmap)
+    ZIPPYPRETEXT(input, sample, agp, idxfile, hicmap)
 }
 
 /*
@@ -71,7 +71,7 @@ workflow {
     // WORKFLOW: Run main workflow
     //
     SANGERTOL_ZIPPYPRETEXT (
-        PIPELINE_INITIALISATION.out.fasta,
+        PIPELINE_INITIALISATION.out.input,
         PIPELINE_INITIALISATION.out.sample,
         PIPELINE_INITIALISATION.out.agp,
         PIPELINE_INITIALISATION.out.idxfile,

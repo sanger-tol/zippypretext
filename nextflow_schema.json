@@ -12,7 +12,7 @@
             "description": "Define where the pipeline should find input data and save output data.",
             "required": ["fasta", "outdir"],
             "properties": {
-                "fasta": {
+                "input": {
                     "type": "string",
                     "format": "file-path",
                     "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",

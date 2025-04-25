@@ -67,7 +67,7 @@ workflow PIPELINE_INITIALISATION {
     // Create channel from fasta file provided through params.fasta
     //
 
-    fasta     = Channel.fromPath(
+    input     = Channel.fromPath(
                 params.fasta,
                 checkIfExists: true,
                 type: 'file'
@@ -75,7 +75,7 @@ workflow PIPELINE_INITIALISATION {
 
     sample     =  params.sample
 
-    agp = Channel.fromPath(
+    agp        = Channel.fromPath(
                 params.agp,
                 checkIfExists: true,
                 type: 'file'
@@ -97,7 +97,7 @@ workflow PIPELINE_INITIALISATION {
 
 
     emit:
-    fasta
+    input
     sample
     agp
     idxfile

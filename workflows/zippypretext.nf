@@ -19,7 +19,7 @@ include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_zipp
 workflow ZIPPYPRETEXT {
 
     take:
-    fasta // channel: fasta file to produce the mapped bam
+    input // channel: fasta file to produce the mapped bam
     sample
     agp
     idxfile
@@ -29,7 +29,7 @@ workflow ZIPPYPRETEXT {
 
     ch_versions = Channel.empty()
 
-    fasta.combine(sample).map { fasta, sample -> tuple ( [ id: sample], fasta)}.set { fasta_tuple }
+    input.combine(sample).map { fasta, sample -> tuple ( [ id: sample], fasta)}.set { fasta_tuple }
     hicmap.combine(sample).map { hicmap, sample -> tuple ( [ id: sample], hicmap)}.set { hicmap_tuple }
 
 
