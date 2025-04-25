@@ -40,14 +40,15 @@ take:
         agp,
         idxfile
     )
-	ch_alignment = JUICERC.out.alignment
+    ch_alignment = JUICERC.out.alignment
     JUICERC.out.outlog.combine( fasta )
                 .map{ outlog, fa_id, fa ->
                                 tuple(
                                     fa_id,
                                     outlog
                                 )
-                    }.set{ch_outlog}
+                    }
+                .set{ch_outlog}
     ch_versions  = ch_versions.mix(JUICERC.out.versions.first())
 
     //
