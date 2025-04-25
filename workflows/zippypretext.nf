@@ -19,7 +19,7 @@ include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_zipp
 workflow ZIPPYPRETEXT {
 
     take:
-    fasta // channel: fasta file to produce the mapped bam 
+    fasta // channel: fasta file to produce the mapped bam
     sample
     pretextagp
     idxfile

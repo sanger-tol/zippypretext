@@ -76,7 +76,7 @@ workflow {
         PIPELINE_INITIALISATION.out.pretextagp,
         PIPELINE_INITIALISATION.out.idxfile,
         PIPELINE_INITIALISATION.out.hicmap
-    
+
     )
     //
     // SUBWORKFLOW: Run completion tasks

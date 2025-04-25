@@ -52,13 +52,13 @@ take:
 
     //
     // MODULE: GENERATE HEADER
-    //  
+    //
     MAKE_HEADER (
         ch_outlog
     )
     MAKE_HEADER.out.header.map{ header_id, header -> header}.set{ch_header}
     ch_versions  = ch_versions.mix(MAKE_HEADER.out.versions.first())
-        
+
     //
     // MODULE: GENERATE PAIR FILE BY COMBINING HEADER AND NEW ALIGNMENT FILE
     //

@@ -26,7 +26,7 @@ process JUICERC {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-		juicer: \$(juicer -h | grep 'Version'|sed 's/Version: //g')
+        juicer: \$(juicer -h | grep 'Version'|sed 's/Version: //g')
     END_VERSIONS
     """
 
