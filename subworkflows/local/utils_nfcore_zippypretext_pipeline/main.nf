@@ -68,7 +68,7 @@ workflow PIPELINE_INITIALISATION {
     //
 
     input     = Channel.fromPath(
-                params.fasta,
+                fasta,
                 checkIfExists: true,
                 type: 'file'
                 )
