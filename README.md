@@ -12,7 +12,7 @@
 
 ## Introduction
 
-**sanger-tol/zippypretext** is a bioinformatics pipeline that ...
+**sanger-tol/zippypretext** is a bioinformatics pipeline designed to generate a Hi-C Pretext map using existing mapping information. The pipeline and method were developed primarily to assist curation work in the Tree of Life project. In this approach, users do not need to perform Hi-C read alignment with BWA-MEM or Minimap2. Instead, a newly prepared AGP file is used as the main input, reflecting the updated sequence locations after editing the Pretext map. This pipeline can significantly save time, as no new mapping is required.
 
 <!-- TODO nf-core:
    Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
