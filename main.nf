@@ -64,7 +64,7 @@ workflow {
         params.monochrome_logs,
         args,
         params.outdir,
-        params.fasta,
+        params.input,
         params.agp,
         params.idxfile,
         params.hicmap,

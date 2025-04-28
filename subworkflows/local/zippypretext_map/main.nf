@@ -24,7 +24,7 @@ take:
     // MODULE: GENERATE CORRECT AGP FILE
     //
     PRETEXT_TO_ASM (
-        fasta,
+        input,
         agp
     )
     ch_correctedagp = PRETEXT_TO_ASM.out.correctedagp

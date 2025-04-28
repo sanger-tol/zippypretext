@@ -31,7 +31,7 @@ workflow PIPELINE_INITIALISATION {
     monochrome_logs   // boolean: Do not use coloured log outputs
     nextflow_cli_args //   array: List of positional nextflow CLI args
     outdir            //  string: The output directory where the results will be saved
-    fasta             //  string: Path to input fasta
+    input             //  string: Path to input fasta
     agp
     idxfile
     hicmap
@@ -72,7 +72,7 @@ workflow PIPELINE_INITIALISATION {
     //
 
     input     = Channel.fromPath(
-                fasta,
+                input,
                 checkIfExists: true,
                 type: 'file'
                 )
