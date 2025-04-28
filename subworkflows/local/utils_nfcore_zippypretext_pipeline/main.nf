@@ -35,6 +35,7 @@ workflow PIPELINE_INITIALISATION {
     agp
     idxfile
     hicmap
+    sample
 
     main:
 

@@ -68,6 +68,7 @@ workflow {
         params.agp,
         params.idxfile,
         params.hicmap,
+        params.sample
     )
 
     //
