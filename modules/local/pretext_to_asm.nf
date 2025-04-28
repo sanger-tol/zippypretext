@@ -2,7 +2,7 @@ process PRETEXT_TO_ASM {
     tag "$meta.id"
     label 'process_single'
 
-    container 'ghcr.io/sanger-tol/agp-tpf-utils:1.1.3'
+    container 'ghcr.io/sanger-tol/agp-tpf-utils:main'
 
     input:
     tuple val(meta), path(mappedfasta)
