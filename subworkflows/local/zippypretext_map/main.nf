@@ -23,8 +23,6 @@ take:
     //
     // MODULE: GENERATE CORRECT AGP FILE
     //
-    input.view { println it }
-    
     PRETEXT_TO_ASM (
         input,
         agp
