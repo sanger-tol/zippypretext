@@ -5,7 +5,7 @@
 */
 
 include { ZIPPYPRETEXT_MAP           } from '../subworkflows/local/zippypretext_map'
-include { paramsSummaryMap       } from 'plugin/nf-validation'
+include { paramsSummaryMap       } from 'plugin/nf-schema'
 include { paramsSummaryMultiqc   } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_zippypretext_pipeline'
