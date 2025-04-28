@@ -12,17 +12,11 @@
 
 ## Introduction
 
-**sanger-tol/zippypretext** is a bioinformatics pipeline designed to generate a Hi-C Pretext map using existing mapping information. The pipeline and method were developed primarily to assist curation work in the Tree of Life project. In this approach, users do not need to perform Hi-C read alignment with BWA-MEM or Minimap2. Instead, a newly prepared AGP file is used as the main input, reflecting the updated sequence locations after editing the Pretext map. This pipeline can significantly save time, as no new mapping is required.
+**sanger-tol/zippypretext** is a bioinformatics pipeline designed to generate a Hi-C Pretext map using existing mapping information. The pipeline and method were developed primarily to assist curation work in the Tree of Life project. In this approach, users do not need to perform Hi-C read alignment with using [minimap2](https://github.com/lh3/minimap2) or [bwa-mem2](https://github.com/bwa-mem2/bwa-mem2). Instead, a newly prepared AGP file is used as the main input, reflecting the updated sequence locations after editing the Pretext map. This pipeline can significantly save time, as no new mapping is required.
 
-<!-- TODO nf-core:
-   Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
-   major pipeline sections and the types of output it produces. You're giving an overview to someone new
-   to nf-core here, in 15-20 seconds. For an example, see https://github.com/nf-core/rnaseq/blob/master/README.md#introduction
--->
+## Pipeline summary
 
-<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
-     workflows use the "tube map" design for that. See https://nf-co.re/docs/contributing/design_guidelines#examples for examples.   -->
-<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->1. Read QC ([`FastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/))2. Present QC for raw reads ([`MultiQC`](http://multiqc.info/))
+1. Taking the pretext agp and convert it to the correct format using [PRETEXT_TO_ASM](https://github.com/sanger-tol/agp-tpf-utils/blob/main/src/tola/assembly/scripts/pretext_to_asm.py).
 
 ## Usage
 
