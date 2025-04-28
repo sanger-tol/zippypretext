@@ -32,6 +32,9 @@ workflow PIPELINE_INITIALISATION {
     nextflow_cli_args //   array: List of positional nextflow CLI args
     outdir            //  string: The output directory where the results will be saved
     fasta             //  string: Path to input fasta
+    agp
+    idxfile
+    hicmap
 
     main:
 
@@ -76,19 +79,19 @@ workflow PIPELINE_INITIALISATION {
     sample     =  params.sample
 
     agp        = Channel.fromPath(
-                params.agp,
+                agp,
                 checkIfExists: true,
                 type: 'file'
                 )
 
     idxfile    = Channel.fromPath(
-                params.idxfile,
+                idxfile,
                 checkIfExists: true,
                 type: 'file'
                 )
 
     hicmap    = Channel.fromPath(
-                params.hicmap,
+                hicmap,
                 checkIfExists: true,
                 type: 'file'
                 )
