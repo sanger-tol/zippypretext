@@ -17,13 +17,13 @@
                     "format": "file-path",
                     "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
                     "description": "Input fasta file",
-                    "help_text": "You need the input fasta file",
+                    "help_text": "You need the input FASTA file that was used in the previous alignment",
                     "fa_icon": "fas fa-file-fasta"
                 },
                 "sample": {
                     "type": "string",
                     "description": "output pretext prefix",
-                    "help_text": "Give me pretext prefix",
+                    "help_text": "pretext file prefix",
                     "fa_icon": "fas fa-file-signature"
                 },
                 "agp": {
@@ -31,7 +31,7 @@
                     "format": "file-path",
                     "pattern": "^\\S+(\\.agp)?$",
                     "description": "pretext agp file",
-                    "help_text": "You need the agp file",
+                    "help_text": "You need the agp file generated from pretextview",
                     "fa_icon": "fas fa-file-fasta"
                 },
                 "hicmap": {

@@ -76,7 +76,7 @@ workflow PIPELINE_INITIALISATION {
                 type: 'file'
                 )
 
-    sample     =  params.sample
+    sample     = sample
 
     agp        = Channel.fromPath(
                 agp,
