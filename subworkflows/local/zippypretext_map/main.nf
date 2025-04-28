@@ -41,7 +41,7 @@ take:
         idxfile
     )
     ch_alignment = JUICERC.out.alignment
-    JUICERC.out.outlog.combine( fasta )
+    JUICERC.out.outlog.combine( input )
                 .map{ outlog, fa_id, fa ->
                                 tuple(
                                     fa_id,
