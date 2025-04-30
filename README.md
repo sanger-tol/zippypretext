@@ -16,7 +16,10 @@
 
 ## Pipeline summary
 
-1. Taking the pretext agp and convert it to the correct format using [PRETEXT_TO_ASM](https://github.com/sanger-tol/agp-tpf-utils/blob/main/src/tola/assembly/scripts/pretext_to_asm.py).
+1. Convert the Pretext AGP file to the correct format using [PRETEXT_TO_ASM](https://github.com/sanger-tol/agp-tpf-utils/blob/main/src/tola/assembly/scripts/pretext_to_asm.py).
+2. Use [JUICERC](https://github.com/aidenlab/juicer) to extract the rearranged alignment information.
+3. Generate interaction pairs based on the new alignment information using MAKE_PAIRS.
+4. Use the pair information to generate a new Pretext map with [PRETEXTMAP](https://github.com/sanger-tol/PretextMap)
 
 ## Usage
 
