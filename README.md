@@ -26,12 +26,9 @@
 > [!NOTE]
 > If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow. Make sure to [test your setup](https://nf-co.re/docs/usage/introduction#how-to-run-a-pipeline) with `-profile test` before running the workflow on actual data.
 
-<!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
-     Explain what rows and columns represent. For instance (please edit as appropriate):
+First, prepare a pretext agp (direct output from pretext view), looks as follows:
 
-First, prepare a samplesheet with your input data that looks as follows:
-
-`samplesheet.csv`:
+`sample.agp`:
 
 ```csv
 sample,fastq_1,fastq_2
