@@ -53,8 +53,6 @@ These files are typically located in the TreeVal run folder, under the subfolder
 
 Now, you can run the pipeline using:
 
-<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
-
 ```bash
 nextflow run sanger-tol/zippypretext \
    -profile <docker/singularity/.../institute> \
@@ -73,6 +71,7 @@ nextflow run sanger-tol/zippypretext \
 sanger-tol/zippypretext was originally written by [Yumi sims](https://github.com/yumisims) and [Chenxi Zhou](https://github.com/c-zhou).
 
 We thank the following people for their extensive assistance in the development of this pipeline:
+[Jim Downie](https://github.com/prototaxites) 
 
 ## Contributions and Support
 
