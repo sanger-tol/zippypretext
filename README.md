@@ -43,7 +43,11 @@ Scaffold_6	1	124902	1	W	HAP1_SCAFFOLD_2	296505	421406	+
 Scaffold_7	1	1794235	1	W	HAP1_SCAFFOLD_2	1073066	2867300	+
 ```
 
-Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
+Second, collect the information used for the previous Hi-C alignment. This should include the following files:
+`sample.fa`
+`sample.fa.fai`
+`alignment.bin`
+These files are typically located in the TreeVal run folder, under the subfolder hic_file.
 
 -->
 
