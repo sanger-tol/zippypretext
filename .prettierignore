@@ -1,5 +1,4 @@
 email_template.html
-adaptivecard.json
 slackreport.json
 .nextflow*
 work/
@@ -10,4 +9,6 @@ testing/
 testing*
 *.pyc
 bin/
-ro-crate-metadata.json
+.nf-test/
+modules/nf-core/
+subworkflows/nf-core/

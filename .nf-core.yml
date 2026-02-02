@@ -1,8 +1,12 @@
-repository_type: pipeline
-
-nf_core_version: 3.2.0
-
 lint:
+  files_exist:
+    - CODE_OF_CONDUCT.md
+    - assets/nf-core-zippypretext_logo_light.png
+    - docs/images/nf-core-zippypretext_logo_light.png
+    - docs/images/nf-core-zippypretext_logo_dark.png
+    - .github/ISSUE_TEMPLATE/config.yml
+    - .github/workflows/awstest.yml
+    - .github/workflows/awsfulltest.yml
   files_unchanged:
     - CODE_OF_CONDUCT.md
     - assets/nf-core-zippypretext_logo_light.png
@@ -13,6 +17,8 @@ lint:
     - .github/PULL_REQUEST_TEMPLATE.md
     - assets/email_template.txt
     - docs/README.md
+  multiqc_config:
+    - report_comment
   nextflow_config:
     - manifest.name
     - manifest.homePage
@@ -20,25 +26,23 @@ lint:
     - validation.help.afterText
     - validation.summary.beforeText
     - validation.summary.afterText
-  multiqc_config:
-    - report_comment
-  files_exist:
-    - CODE_OF_CONDUCT.md
-    - assets/nf-core-zippypretext_logo_light.png
-    - docs/images/nf-core-zippypretext_logo_light.png
-    - docs/images/nf-core-zippypretext_logo_dark.png
-    - .github/ISSUE_TEMPLATE/config.yml
-    - .github/workflows/awstest.yml
-    - .github/workflows/awsfulltest.yml
-
+nf_core_version: 3.5.2
+repository_type: pipeline
 template:
-  org: sanger-tol
-  name: zippypretext
+  author: Yumisims
   description: A Nextflow pipeline that generates Hi-C maps in Pretext format while
     preserving previous alignment information.
-  author: Yumisims
-  version: 1.0.0dev
-  force: true
-  outdir: .
-  skip_features: []
+  force: false
   is_nfcore: false
+  name: zippypretext
+  org: sanger-tol
+  outdir: .
+  skip_features:
+    - igenomes
+    - codespaces
+    - fastqc
+    - adaptivecard
+    - seqera_platform
+    - multiqc
+    - rocrate
+  version: 1.0.0dev
