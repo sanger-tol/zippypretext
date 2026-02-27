@@ -18,7 +18,7 @@ take:
 
     main:
 
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     //
     // MODULE: GENERATE CORRECT AGP FILE
@@ -30,19 +30,19 @@ take:
     ch_correctedagp = PRETEXT_TO_ASM.out.correctedagp
     ch_versions = ch_versions.mix(PRETEXT_TO_ASM.out.versions.first())
 
-    PRETEXT_TO_ASM.out.correctedagp.map{ agpid, agp -> agp}.set{agp}
+    ch_correctedagp.map{ _agpid, agp_val -> agp_val}.set{agp_corrected}
 
     //
     // MODULE: GENERATE NEW ALIGNMENT FILE USING JUICERC
     //
     JUICERC (
         hicmap,
-        agp,
+        agp_corrected,
         idxfile
     )
     ch_alignment = JUICERC.out.alignment
     JUICERC.out.outlog.combine( input )
-                .map{ outlog, fa_id, fa ->
+                .map{ outlog, fa_id, _fa ->
                                 tuple(
                                     fa_id,
                                     outlog
@@ -57,7 +57,7 @@ take:
     MAKE_HEADER (
         ch_outlog
     )
-    MAKE_HEADER.out.header.map{ header_id, header -> header}.set{ch_header}
+    MAKE_HEADER.out.header.map{ _header_id, header -> header}.set{ch_header}
     ch_versions  = ch_versions.mix(MAKE_HEADER.out.versions.first())
 
     //

@@ -27,10 +27,10 @@ workflow ZIPPYPRETEXT {
 
     main:
 
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
-    input.combine(sample).map { input, sample -> tuple ( [ id: sample], input)}.set { fasta_tuple }
-    hicmap.combine(sample).map { hicmap, sample -> tuple ( [ id: sample], hicmap)}.set { hicmap_tuple }
+    input.combine(sample).map { inp, smp -> tuple ( [ id: smp], inp)}.set { fasta_tuple }
+    hicmap.combine(sample).map { hm, smp -> tuple ( [ id: smp], hm)}.set { hicmap_tuple }
 
 
     //

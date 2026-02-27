@@ -28,7 +28,7 @@ workflow PIPELINE_INITIALISATION {
     take:
     version           // boolean: Display version and exit
     validate_params   // boolean: Boolean whether to validate parameters against the schema at runtime
-    monochrome_logs   // boolean: Do not use coloured log outputs
+    _monochrome_logs  // boolean: Do not use coloured log outputs
     nextflow_cli_args //   array: List of positional nextflow CLI args
     outdir            //  string: The output directory where the results will be saved
     input             //  string: Path to input fasta
@@ -39,7 +39,7 @@ workflow PIPELINE_INITIALISATION {
 
     main:
 
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     //
     // Print version and exit if required and dump pipeline parameters to JSON file
@@ -71,7 +71,7 @@ workflow PIPELINE_INITIALISATION {
     // Create channel from fasta file provided through params.fasta
     //
 
-    input     = Channel.fromPath(
+    input     = channel.fromPath(
                 input,
                 checkIfExists: true,
                 type: 'file'
@@ -79,19 +79,19 @@ workflow PIPELINE_INITIALISATION {
 
     sample     = sample
 
-    agp        = Channel.fromPath(
+    agp        = channel.fromPath(
                 agp,
                 checkIfExists: true,
                 type: 'file'
                 )
 
-    idxfile    = Channel.fromPath(
+    idxfile    = channel.fromPath(
                 idxfile,
                 checkIfExists: true,
                 type: 'file'
                 )
 
-    hicmap    = Channel.fromPath(
+    hicmap    = channel.fromPath(
                 hicmap,
                 checkIfExists: true,
                 type: 'file'
