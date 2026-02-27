@@ -71,7 +71,7 @@ nextflow run sanger-tol/zippypretext \
 sanger-tol/zippypretext was originally written by [Yumi sims](https://github.com/yumisims) and [Chenxi Zhou](https://github.com/c-zhou).
 
 We thank the following people for their extensive assistance in the development of this pipeline:
-[Jim Downie](https://github.com/prototaxites) 
+[Jim Downie](https://github.com/prototaxites)
 
 ## Contributions and Support
 
@@ -80,6 +80,7 @@ If you would like to contribute to this pipeline, please see the [contributing g
 ## Citations
 
 <!-- If you use sanger-tol/zippypretext for your analysis, please cite it using the following doi: [10.5281/zenodo.XXXXXX](https://doi.org/10.5281/zenodo.XXXXXX) -->
+
 An extensive list of references for the tools used by the pipeline can be found in the [`CITATIONS.md`](CITATIONS.md) file.
 
 This pipeline uses code and infrastructure developed and maintained by the [nf-core](https://nf-co.re) community, reused here under the [MIT license](https://github.com/nf-core/tools/blob/main/LICENSE).
