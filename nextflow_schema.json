@@ -15,13 +15,40 @@
                 "input": {
                     "type": "string",
                     "format": "file-path",
-                    "exists": true,
-                    "schema": "assets/schema_input.json",
-                    "mimetype": "text/csv",
-                    "pattern": "^\\S+\\.csv$",
-                    "description": "Path to comma-separated file containing information about the samples in the experiment.",
-                    "help_text": "You will need to create a design file with information about the samples in your experiment before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row.",
-                    "fa_icon": "fas fa-file-csv"
+                    "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
+                    "description": "Input fasta file",
+                    "help_text": "You need the input FASTA file that was used in the previous alignment",
+                    "fa_icon": "fas fa-file-fasta"
+                },
+                "sample": {
+                    "type": "string",
+                    "description": "output pretext prefix",
+                    "help_text": "pretext file prefix",
+                    "fa_icon": "fas fa-file-signature"
+                },
+                "agp": {
+                    "type": "string",
+                    "format": "file-path",
+                    "pattern": "^\\S+(\\.agp)?$",
+                    "description": "pretext agp file",
+                    "help_text": "You need the agp file generated from pretextview",
+                    "fa_icon": "fas fa-file-fasta"
+                },
+                "hicmap": {
+                    "type": "string",
+                    "format": "file-path",
+                    "pattern": "^\\S+?$",
+                    "description": "bin/bam file",
+                    "help_text": "You need the hicmap file, can be bin file or bam file",
+                    "fa_icon": "fas fa-file-fasta"
+                },
+                "idxfile": {
+                    "type": "string",
+                    "format": "file-path",
+                    "pattern": "^\\S+(\\.fai)?$",
+                    "description": "fasta index file",
+                    "help_text": "You need the fasta index file from the last mapping",
+                    "fa_icon": "fas fa-file-fasta"
                 },
                 "outdir": {
                     "type": "string",

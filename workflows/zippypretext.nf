@@ -3,6 +3,11 @@
     IMPORT MODULES / SUBWORKFLOWS / FUNCTIONS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
+<<<<<<< HEAD
+=======
+
+include { ZIPPYPRETEXT_MAP           } from '../subworkflows/local/zippypretext_map'
+>>>>>>> origin/dev
 include { paramsSummaryMap       } from 'plugin/nf-schema'
 include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pipeline'
 include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_zippypretext_pipeline'
@@ -16,9 +21,15 @@ include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_zipp
 workflow ZIPPYPRETEXT {
 
     take:
-    ch_samplesheet // channel: samplesheet read in from --input
+    input // channel: fasta file to produce the mapped bam
+    sample
+    agp
+    idxfile
+    hicmap
+
     main:
 
+<<<<<<< HEAD
     ch_versions = channel.empty()
 
     //
@@ -51,9 +62,24 @@ workflow ZIPPYPRETEXT {
         ).set { ch_collated_versions }
 
 
+=======
+    ch_versions = Channel.empty()
+
+    input.combine(sample).map { input, sample -> tuple ( [ id: sample], input)}.set { fasta_tuple }
+    hicmap.combine(sample).map { hicmap, sample -> tuple ( [ id: sample], hicmap)}.set { hicmap_tuple }
+
+
+    //
+    // SUBWORKFLOW: Run ZIPPYPRETEXT
+    //
+    ZIPPYPRETEXT_MAP (
+        fasta_tuple,agp,hicmap_tuple,idxfile
+    )
+    ch_versions = ch_versions.mix(ZIPPYPRETEXT_MAP.out.versions.first())
+
+>>>>>>> origin/dev
     emit:
     versions       = ch_versions                 // channel: [ path(versions.yml) ]
-
 }
 
 /*

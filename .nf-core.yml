@@ -32,11 +32,11 @@ template:
   author: Yumisims
   description: A Nextflow pipeline that generates Hi-C maps in Pretext format while
     preserving previous alignment information.
-  force: false
-  is_nfcore: false
-  name: zippypretext
-  org: sanger-tol
+  author: Yumisims
+  version: 1.0.0dev
+  force: true
   outdir: .
+  is_nfcore: false
   skip_features:
     - igenomes
     - codespaces
@@ -45,4 +45,3 @@ template:
     - seqera_platform
     - multiqc
     - rocrate
-  version: 1.0.0dev

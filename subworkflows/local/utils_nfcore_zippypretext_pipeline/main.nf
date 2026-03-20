@@ -32,10 +32,18 @@ workflow PIPELINE_INITIALISATION {
     monochrome_logs   // boolean: Do not use coloured log outputs
     nextflow_cli_args //   array: List of positional nextflow CLI args
     outdir            //  string: The output directory where the results will be saved
+<<<<<<< HEAD
     input             //  string: Path to input samplesheet
     help              // boolean: Display help message and exit
     help_full         // boolean: Show the full help message
     show_hidden       // boolean: Show hidden parameters in the help message
+=======
+    input             //  string: Path to input fasta
+    agp
+    idxfile
+    hicmap
+    sample
+>>>>>>> origin/dev
 
     main:
 
@@ -76,6 +84,7 @@ workflow PIPELINE_INITIALISATION {
     )
 
     //
+<<<<<<< HEAD
     // Create channel from input file provided through params.input
     //
 
@@ -98,9 +107,46 @@ workflow PIPELINE_INITIALISATION {
                 return [ meta, fastqs.flatten() ]
         }
         .set { ch_samplesheet }
+=======
+    // Create channel from fasta file provided through params.fasta
+    //
+
+    input     = Channel.fromPath(
+                input,
+                checkIfExists: true,
+                type: 'file'
+                )
+
+    sample     = sample
+
+    agp        = Channel.fromPath(
+                agp,
+                checkIfExists: true,
+                type: 'file'
+                )
+
+    idxfile    = Channel.fromPath(
+                idxfile,
+                checkIfExists: true,
+                type: 'file'
+                )
+
+    hicmap    = Channel.fromPath(
+                hicmap,
+                checkIfExists: true,
+                type: 'file'
+                )
+
+
+
+>>>>>>> origin/dev
 
     emit:
-    samplesheet = ch_samplesheet
+    input
+    sample
+    agp
+    idxfile
+    hicmap
     versions    = ch_versions
 }
 
@@ -170,13 +216,16 @@ def validateInputSamplesheet(input) {
 
     return [ metas[0], fastqs ]
 }
+<<<<<<< HEAD
 //
 // Generate methods description for MultiQC
+=======
+
+//
+// Generate methods description
+>>>>>>> origin/dev
 //
 def toolCitationText() {
-    // TODO nf-core: Optionally add in-text citation tools to this list.
-    // Can use ternary operators to dynamically construct based conditions, e.g. params["run_xyz"] ? "Tool (Foo et al. 2023)" : "",
-    // Uncomment function in methodsDescriptionText to render in MultiQC report
     def citation_text = [
             "Tools used in the workflow included:",
             "."
@@ -186,9 +235,6 @@ def toolCitationText() {
 }
 
 def toolBibliographyText() {
-    // TODO nf-core: Optionally add bibliographic entries to this list.
-    // Can use ternary operators to dynamically construct based conditions, e.g. params["run_xyz"] ? "<li>Author (2023) Pub name, Journal, DOI</li>" : "",
-    // Uncomment function in methodsDescriptionText to render in MultiQC report
     def reference_text = [
         ].join(' ').trim()
 

@@ -16,6 +16,13 @@
 include { ZIPPYPRETEXT  } from './workflows/zippypretext'
 include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_zippypretext_pipeline'
 include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_zippypretext_pipeline'
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    GENOME PARAMETER VALUES
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     NAMED WORKFLOWS FOR PIPELINE
@@ -25,20 +32,20 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_zipp
 //
 // WORKFLOW: Run main analysis pipeline depending on type of input
 //
-workflow SANGERTOL_ZIPPYPRETEXT {
 
+workflow SANGERTOL_ZIPPYPRETEXT {
     take:
-    samplesheet // channel: samplesheet read in from --input
+    input
+    sample
+    agp
+    idxfile
+    hicmap
 
     main:
 
-    //
-    // WORKFLOW: Run pipeline
-    //
-    ZIPPYPRETEXT (
-        samplesheet
-    )
+    ZIPPYPRETEXT(input, sample, agp, idxfile, hicmap)
 }
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     RUN MAIN WORKFLOW
@@ -67,7 +74,12 @@ workflow {
     // WORKFLOW: Run main workflow
     //
     SANGERTOL_ZIPPYPRETEXT (
-        PIPELINE_INITIALISATION.out.samplesheet
+        PIPELINE_INITIALISATION.out.input,
+        PIPELINE_INITIALISATION.out.sample,
+        PIPELINE_INITIALISATION.out.agp,
+        PIPELINE_INITIALISATION.out.idxfile,
+        PIPELINE_INITIALISATION.out.hicmap
+
     )
     //
     // SUBWORKFLOW: Run completion tasks
@@ -78,7 +90,7 @@ workflow {
         params.plaintext_email,
         params.outdir,
         params.monochrome_logs,
-        params.hook_url,
+        params.hook_url
     )
 }
 
