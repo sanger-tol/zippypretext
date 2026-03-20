@@ -32,7 +32,6 @@ template:
   author: Yumisims
   description: A Nextflow pipeline that generates Hi-C maps in Pretext format while
     preserving previous alignment information.
-  author: Yumisims
   version: 1.0.0dev
   force: true
   outdir: .
